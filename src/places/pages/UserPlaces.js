@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useStatr } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import PlaceList from "../components/PlaceList";
@@ -26,6 +26,8 @@ const UserPlaces = () => {
 
   return (
     <React.Fragment>
+      <ErrorModal error={error} onClear={clearError} />
+      {isLoading && <LoadingSpinner asOverlay />}
       {!isLoading && loadedPlaces && <PlaceList items={loadedPlaces} />}
     </React.Fragment>
   );
